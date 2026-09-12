@@ -21,7 +21,7 @@ This project predicts used car selling prices using historical vehicle data from
 - **Best Model:** Tuned Random Forest Regressor (`best_random_forest_model.pkl`).
 - **Evaluation Metrics:** Evaluated models using Root Mean Squared Error (RMSE) and $R^2$ Score to achieve the highest predictive performance.
 - **Key Findings:** `max_power`, `vehicle_age`, and `engine` size were identified among the strongest drivers of vehicle selling price.
-
+- **Future Improvements:** Deploy the Flask application to a cloud provider (e.g., Render, AWS) and experiment with advanced ensemble techniques like XGBoost or LightGBM.
 ## How to Setup and Run
 
 ### 1. Requirements
