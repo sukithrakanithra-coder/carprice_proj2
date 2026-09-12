@@ -28,3 +28,11 @@ This project predicts used car selling prices using historical vehicle data from
 Ensure Python 3.8+ is installed along with the following packages:
 ```bash
 pip install numpy pandas matplotlib seaborn scipy scikit-learn flask
+## Visualizations & Web App Preview
+
+### Exploratory Data Analysis & Model Outputs
+![EDA Chart 1](Screenshot%20\(20\).png)
+![EDA Chart 2](Screenshot%20\(21\).png)
+
+### Web Application Interface
+![Flask App Interface](Screenshot%20\(22\).png)
