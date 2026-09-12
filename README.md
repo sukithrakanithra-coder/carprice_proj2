@@ -1,24 +1,30 @@
-# Machine Learning Project
+# Used Vehicle Price Prediction & Flask Web App
 
 ## Project Overview
-Briefly describe what your project does, its goals, and the practical application.
+This project predicts used car selling prices using historical vehicle data from CarDekho. It features an end-to-end machine learning pipeline covering Exploratory Data Analysis (EDA), feature engineering, model training/hyperparameter tuning, and a interactive Flask web application for real-time price estimation.
 
 ## Dataset Information
-- **Source:** Name/link of the dataset used (e.g., Kaggle, UCI Machine Learning Repository).
-- **Features:** Summary of key input features/variables.
-- **Preprocessing:** Data cleaning steps applied (e.g., handling missing values, encoding categorical variables, scaling).
+- **Source:** CarDekho Dataset (`cardekho_dataset.csv`).
+- **Numerical Features:** `vehicle_age`, `km_driven`, `mileage`, `engine`, `max_power`, `seats`, `selling_price`.
+- **Categorical Features:** `car_name`, `brand`, `model`, `seller_type`, `fuel_type`, `transmission_type`.
+- **Preprocessing:** 
+  - Checked and removed missing values.
+  - Performed One-Hot Encoding (`pd.get_dummies`) with `drop_first=True` on categorical variables (`fuel_type`, `transmission_type`, `seller_type`).
+  - Evaluated feature importance using `ExtraTreesRegressor`.
 
 ## Model Implementation
-- **Algorithms Used:** (e.g., Linear Regression, Ridge Regression, Logistic Regression)
-- **Data Preparation:** Train-test split ratio and feature selection details.
+- **Algorithms Evaluated:** Linear Regression, Ridge Regression, Lasso Regression, Support Vector Regressor (SVR), Decision Tree Regressor, Random Forest Regressor, and Extra Trees Regressor.
+- **Model Selection & Tuning:** Hyperparameter optimization was performed on the **Random Forest Regressor** using `RandomizedSearchCV` across parameters such as `n_estimators`, `max_depth`, `min_samples_split`, `min_samples_leaf`, and `max_features`.
+- **Data Split:** 80% Training set, 20% Testing set (`random_state=3`).
 
 ## Results & Performance Insights
-- **Evaluation Metrics:** Highlight performance scores (e.g., RMSE, R² score, Accuracy).
-- **Key Findings:** What were the main takeaways from the data analysis?
-- **Future Improvements:** Mention possible model enhancements or potential next steps.
+- **Best Model:** Tuned Random Forest Regressor (`best_random_forest_model.pkl`).
+- **Evaluation Metrics:** Evaluated models using Root Mean Squared Error (RMSE) and $R^2$ Score to achieve the highest predictive performance.
+- **Key Findings:** `max_power`, `vehicle_age`, and `engine` size were identified among the strongest drivers of vehicle selling price.
 
 ## How to Setup and Run
-1. Clone this repository or download the `.ipynb` file.
-2. Install required dependencies:
-   ```bash
-   pip install pandas numpy scikit-learn matplotlib seaborn# carprice_proj2
+
+### 1. Requirements
+Ensure Python 3.8+ is installed along with the following packages:
+```bash
+pip install numpy pandas matplotlib seaborn scipy scikit-learn flask
